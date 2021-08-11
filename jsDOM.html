@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+  display:flex;
+  flex-wrap:wrap;
+  gap:2rem;
+}
+.container{
+  height:auto-flow;
+  max-width:100%;
+    line-height:1.2;
+    border:2px solid white;
+    background-color:white;
+  box-shadow: 10px 10px  10px 0 grey;
+  overflow:hidden
+}
+img{
+  height:100px;
+  width:100%;
+  border-radius:7px 7px 0 0 ;
+}
+    </style>
+</head>
+<body>
+    
+    <script>
+        let a =[
+  {
+    country:"Germany",
+    region:"Europe",
+    capital:"Berlin",
+    population:8000000,
+    flag:"https://restcountries.eu/data/deu.svg"
+  },
+  {
+    country:"Afghanistan",
+    region:"Asia",
+    capital:"Kabul",
+    population:8000000,
+    flag:"https://restcountries.eu/data/afg.svg"
+  },
+  {
+    country:"Finland",
+    region:"Europe",
+    capital:"Helsinki",
+    population:8000000,
+    flag:"https://restcountries.eu/data/fin.svg"
+  },
+  {
+    country:"India",
+    region:"Asia",
+    capital:"New Delhi",
+    population:8000000,
+    flag:"https://restcountries.eu/data/ind.svg"
+  },
+{
+    country:"Russian Federation",
+    region:"Europe",
+    capital:"Moscow",
+    population:8000000,
+    flag:"https://restcountries.eu/data/rus.svg"
+  }
+]
+
+
+  let div=document.createElement("div");
+  div.className='outer';
+  document.body.append(div)
+  
+
+a.forEach(b =>
+  {
+  let innerdiv=document.createElement("div")
+innerdiv.className='container';
+  div.append(innerdiv);
+  
+  let flag=document.createElement("img")
+  flag.src=b.flag;
+  flag.className='img'
+  
+  let country=document.createElement("h3")
+  country.innerHTML=`${b.country}`;
+  
+  let region=document.createElement("P")
+  region.innerHTML=`<b>Region</b>:${b.region}`
+ 
+  
+  let capital=document.createElement("P")
+  capital.innerHTML=`<b>Capital</b>:${b.capital}`
+ 
+  
+    let population=document.createElement("P")
+  population.innerHTML=`<b>Population</b>:${b.population}`
+  
+    innerdiv.append(flag,country,region,capital,population)
+   })
+    </script>
+</body>
+</html>
